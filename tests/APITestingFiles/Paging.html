@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User List</title>
+</head>
+<body>
+  <h1>User List</h1>
+  <div class="users"></div>
+  <button id="nextPage">Next Page</button>
+  
+  <script>
+    const usersPerPage = 3;  // Number of users per page
+    let currentPage = 1;  // Starting page
+    const users = [  // Simulated user data
+      { id: 1, name: "John Doe", job: "QA Engineer" },
+      { id: 2, name: "Jane Smith", job: "Developer" },
+      { id: 3, name: "Bob Lee", job: "Manager" },
+      { id: 4, name: "Alice Brown", job: "Designer" },
+      { id: 5, name: "Charlie Adams", job: "Tester" },
+      { id: 6, name: "Emma White", job: "Engineer" }
+    ];
+
+    // Function to display users based on the current page
+    function displayUsers(page) {
+      const start = (page - 1) * usersPerPage;  // Calculate start index
+      const end = start + usersPerPage;  // Calculate end index
+      const paginatedUsers = users.slice(start, end);  // Get users for the current page
+      const usersContainer = document.querySelector('.users');
+      usersContainer.innerHTML = '';  // Clear previous users
+
+      paginatedUsers.forEach(user => {
+        const userElement = document.createElement('p');
+        userElement.textContent = `${user.name} - ${user.job}`;  // Display user info
+        usersContainer.appendChild(userElement);  // Add user to the container
+      });
+    }
+
+    // Event listener for the Next Page button
+    document.getElementById('nextPage').addEventListener('click', () => {
+      currentPage++;  // Go to the next page
+      displayUsers(currentPage);  // Display users for the new page
+    });
+
+    displayUsers(currentPage);  // Initially display the first page
+  </script>
+</body>
+</html>
