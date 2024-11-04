@@ -1,5 +1,7 @@
 const { test, expect } = require("@playwright/test");
 const axios = require("axios");
+require("dotenv").config();
+const apiKey = process.env.API_KEY;
 
 test("Authentication and Authorization Testing", async ({ page }) => {
   const response = await axios.get("https://reqres.in/api/users");
@@ -7,7 +9,7 @@ test("Authentication and Authorization Testing", async ({ page }) => {
   console.log(response.data);
 });
 
-const gitToken = "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";
+// const gitToken = "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";
 const gitBaseUrl = "https://api.github.com/";
 test("Authentication and Authorization Testing GitHub", async ({ page }) => {
   //Without Authentication
@@ -19,7 +21,7 @@ test("Authentication and Authorization Testing GitHub", async ({ page }) => {
   await axios
     .get(`${gitBaseUrl}user/repos`, {
       headers: {
-        Authorization: `Bearer ${gitToken}`,
+        Authorization: `Bearer ${apiKey}`,
       },
     })
     .then((response) => {
@@ -33,7 +35,7 @@ test("Authentication and Authorization Testing GitHub", async ({ page }) => {
   await axios
     .get(`${gitBaseUrl}user/repos`, {
       headers: {
-        Authorization: `Bearer ${gitToken}1`,
+        Authorization: `Bearer ${apiKey}1`,
       },
     })
     .then((response) => {
