@@ -1,8 +1,5 @@
 # Playwright Automation Project
 
-**Last Updated:** June 3rd, 2024  
-**Includes Coding Interview Exercises**
-
 Welcome to my repository for the Playwright Automation course! This project is a culmination of everything I learned, from the basics of Playwright to advanced frameworks, all while building practical skills in test automation.
 
 ## Course Overview
