@@ -9,7 +9,6 @@ test("Authentication and Authorization Testing", async ({ page }) => {
   console.log(response.data);
 });
 
-// const gitToken = "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";
 const gitBaseUrl = "https://api.github.com/";
 test("Authentication and Authorization Testing GitHub", async ({ page }) => {
   //Without Authentication
